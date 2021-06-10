@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#000"
     },
     "updates": {
@@ -30,7 +30,7 @@
     },
     "android": {
       "package": "com.Alexsander.tbr",
-      "versionCode": 1
+      "versionCode": 2
     }
   }
 }

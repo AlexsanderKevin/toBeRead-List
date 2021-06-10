@@ -25,7 +25,6 @@ import formStyles from './components/form/formStyles'
 // my components
 import Header from './components/header/header'
 import Item from './components/items/items'
-import { Keyboard } from 'react-native';
 
 export default function App() {
 
@@ -40,9 +39,6 @@ export default function App() {
     const [author, setAuthor] = useState('')
     const [genre, setGenre] = useState('')
     let isValid = title != '' && author != '' && genre != ''
-
-  // counter
-  let readedBooks = 0
 
   function addBook() {
 
@@ -81,12 +77,6 @@ export default function App() {
         }
       ]
     )
-  }
-
-  function addReadedBook(item){
-    //const readed = item
-    //setReadedBook(oldReaded => [...oldReaded, readed])
-    Alert.alert(item)
   }
 
 // storaging and loading the list items
