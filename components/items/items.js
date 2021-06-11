@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { View, Text, TouchableOpacity, Alert, } from 'react-native'
+
+// styles
 import itemStyles from './itemStyles'
+
+// other libs
 import { Ionicons, MaterialIcons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
+
 
 const Item = (props) => {
 

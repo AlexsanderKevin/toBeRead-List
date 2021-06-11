@@ -6,10 +6,7 @@ import {
   View, 
   FlatList, 
   TextInput, 
-  Alert, 
-  ScrollView, 
-  SectionList,
-  KeyboardAvoidingView
+  Alert,
 } from 'react-native'
 
 // other libs
@@ -25,6 +22,10 @@ import formStyles from './components/form/formStyles'
 // my components
 import Header from './components/header/header'
 import Item from './components/items/items'
+
+// my functions
+import isRepeated from './functions/validation';
+import removeBook from './functions/removeBook';
 
 export default function App() {
 
@@ -58,25 +59,12 @@ export default function App() {
   // Function to create the obj and sent to the list
   function handleAddBook(){
     const newBook = {title, author, genre}
-    setBook(oldBook => [...oldBook, newBook])
-  }
 
-  function removeBook(item){
-    
-    Alert.alert('REMOVER LIVRO',
-      'Tem certeza que deseja remover este livro da sua lista?',
-      [
-        {
-          text: 'Cancelar',
-          onPress: () => {return},
-          style: 'cancel',
-        },
-        {
-          text: 'Remover',
-          onPress: () => setBook(book.filter(books => books !== item))
-        }
-      ]
-    )
+    const search = book.filter(book => book === newBook)
+
+    Alert.alert(search.length)
+
+    setBook(oldBook => [...oldBook, newBook])
   }
 
 // storaging and loading the list items
@@ -119,7 +107,7 @@ export default function App() {
               title = {item.title}
               author = {item.author}
               genre = {item.genre}
-              onDelete = {() => removeBook(item)}
+              onDelete = {() => removeBook(item, book, setBook)}
             />
           )}
         />
@@ -198,6 +186,7 @@ export default function App() {
 
           </View>
         </Modal>
+
 
     <View style = {styles.footerContainer}>
       <FontAwesome5
